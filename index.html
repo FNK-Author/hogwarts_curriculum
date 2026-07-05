@@ -1,0 +1,71 @@
+﻿<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#020126">
+  <title>Hogwarts Curriculum</title>
+  <link rel="icon" type="image/png" sizes="200x200" href="https://raw.githubusercontent.com/FNK-Author/hogwarts_curriculum/main/favicon.png?v=20260703-1">
+  <link rel="shortcut icon" type="image/png" href="https://raw.githubusercontent.com/FNK-Author/hogwarts_curriculum/main/favicon.png?v=20260703-1">
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/FNK-Author/hogwarts_curriculum/main/favicon.png?v=20260703-1">
+  <link rel="stylesheet" href="styles.css?v=20260705-4">
+</head>
+<body>
+  <button class="sound-toggle" id="soundToggle" type="button" aria-label=""></button>
+  <label class="language-switcher" for="languageSelect">
+    <span class="language-switcher__icon" aria-hidden="true">🌐</span>
+    <select id="languageSelect" aria-label="Sprache wählen">
+      <option value="de">🇩🇪 Deutsch</option>
+      <option value="en">🇬🇧 English</option>
+    </select>
+  </label>
+  <audio id="bgAudio" src="https://raw.githubusercontent.com/FNK-Author/hogwarts_curriculum/main/bg_loop.mp3" preload="auto" autoplay loop></audio>
+
+  <main class="app-shell">
+    <section class="intro-panel" id="formView">
+      <div class="title-lockup centered-title">
+        <img id="titleLogo" class="title-logo" alt="">
+        <p class="lede quill-type"></p>
+      </div>
+
+      <form id="studentForm" class="student-form">
+        <div class="field-group"><label for="studentName"></label><input id="studentName" autocomplete="name" required></div>
+        <fieldset class="field-group"><legend></legend><div class="house-grid" id="houseChoices"></div></fieldset>
+        <div class="field-row"><div class="field-group"><label for="yearLevel"></label><select id="yearLevel"></select></div><div class="requirement-card" id="requirementCard" tabindex="-1" aria-live="polite"></div></div>
+        <section class="choice-section"><div class="section-heading"><div><h2></h2><button class="toggle-button" id="toggleElectives" type="button"></button></div><span class="selection-count" id="electiveCount"></span></div><div class="choice-grid scroll-choice-grid" id="electiveChoices"></div></section>
+        <section class="choice-section"><div class="section-heading"><div><h2></h2><button class="toggle-button" id="toggleClubs" type="button"></button></div></div><div class="choice-grid club-grid scroll-choice-grid" id="clubChoices"></div></section>
+        <section class="choice-section"><div class="section-heading"><div><h2></h2><button class="toggle-button" id="toggleTrips" type="button"></button></div></div><div class="choice-grid trip-grid scroll-choice-grid" id="tripChoices"></div></section>
+        <p class="form-note" id="formNote"></p>
+        <div class="action-row"><button class="primary-button" type="submit"></button></div>
+      </form>
+    </section>
+
+    <section class="schedule-view" id="scheduleView" hidden>
+      <div class="schedule-toolbar"><button class="ghost-button" id="backButton" type="button"></button><button class="primary-button compact" id="printButton" type="button"></button><button class="ghost-button compact" id="pdfButton" type="button"></button><button class="ghost-button compact" id="disguiseButton" type="button"></button></div>
+      <section class="extra-panel muggle-panel" id="disguisePanel" hidden></section>
+      <article class="schedule-paper" id="schedulePrint">
+        <header class="schedule-header"><img id="printLogo" class="print-logo" alt=""><div><p class="eyebrow"></p><h2 id="scheduleTitle"></h2><p id="scheduleMeta"></p></div><img id="scheduleHouseCrest" class="schedule-crest" alt=""></header>
+        <div class="schedule-filter" id="scheduleFilterControls" aria-label=""></div>
+        <div class="schedule-grid" id="scheduleGrid" role="table" aria-label=""></div><div class="print-credit"></div>
+        <div class="mobile-day-schedule" id="mobileDaySchedule" aria-label=""></div>
+      </article>
+      <section class="schedule-extras print-second-page" id="scheduleExtras">
+        <div class="extra-panel schoolyear-panel"><h2 id="schoolYearTitle"></h2><div id="schoolYearTimeline" class="schoolyear-timeline"></div></div>
+        <div class="extra-panel print-only-extra"><h2></h2><div id="tripSummary" class="summary-list"></div></div>
+        <div class="extra-panel print-only-extra"><h2></h2><div id="specialDates" class="date-grid"></div></div>
+        <div class="extra-panel materials-panel"><h2></h2><div id="materialsTable"></div></div>
+      </section>
+    </section>
+  </main>
+
+  <dialog class="info-dialog" id="infoDialog"><button class="dialog-close" id="dialogClose" type="button" aria-label="">×</button><div class="dialog-body" id="dialogBody"></div></dialog>
+  <button class="scroll-top-button" id="scrollTopButton" type="button" aria-label="">↑</button>
+  <footer class="fnk-footer"><span id="footerBy"></span> <a href="https://linktr.ee/fnk_fanfics" target="_blank" rel="noreferrer"></a></footer>
+  <script src="data.js?v=20260705-4"></script>
+  <script src="i18n.js?v=20260705-4"></script>
+  <script src="app.js?v=20260705-4"></script>
+</body>
+</html>
+
+
+
